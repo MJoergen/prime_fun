@@ -2,7 +2,7 @@
 """Generate and print the first 100 prime numbers."""
 
 
-def is_prime(n):
+def is_prime(n: int) -> bool:
     if n < 2:
         return False
     i = 2
@@ -13,8 +13,8 @@ def is_prime(n):
     return True
 
 
-def first_primes(count):
-    primes = []
+def first_primes(count: int) -> list[int]:
+    primes: list[int] = []
     n = 2
     while len(primes) < count:
         if is_prime(n):
