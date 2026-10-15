@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Generate and print the first 100 prime numbers."""
 
+from collections.abc import Iterator
+
 
 def is_prime(n: int) -> bool:
     if n < 2:
@@ -13,14 +15,14 @@ def is_prime(n: int) -> bool:
     return True
 
 
-def first_primes(count: int) -> list[int]:
-    primes: list[int] = []
+def first_primes(count: int) -> Iterator[int]:
+    found = 0
     n = 2
-    while len(primes) < count:
+    while found < count:
         if is_prime(n):
-            primes.append(n)
+            yield n
+            found += 1
         n += 1
-    return primes
 
 
 if __name__ == "__main__":
